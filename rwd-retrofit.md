@@ -1,6 +1,7 @@
 **Adapting your Existing Layout into a Responsive Layout – A RWD Retrofit**
 
 View the demo:[ http://www.lib.montana.edu/~jason/files/rwd-retrofit/](http://www.lib.montana.edu/~jason/files/rwd-retrofit/)
+
 Download the files:[ https://github.com/jasonclark/rwd-retrofit](https://github.com/jasonclark/rwd-retrofit) or[ http://www.lib.montana.edu/~jason/files/rwd-retrofit.zip](http://www.lib.montana.edu/~jason/files/rwd-retrofit.zip)
 
 We often work within vendor settings in our library application development. That is, we are often working to integrate "built-systems" that have been purchased to provide one of our library services. Some examples of these “built-systems” might include our Integrated Library Systems ([http://en.wikipedia.org/wiki/Integrated_library_system](http://en.wikipedia.org/wiki/Integrated_library_system)) or course guide implementations such as LibGuides from SpringShare ([http://springshare.com/libguides/](http://springshare.com/libguides/)). And it’s not just libraries, many businesses purchase systems to help workflows and enhance services. Anyone who was purchased a Content Management System (CMS) has had to work to integrate the default CMS look and feel into the brand and themes of existing websites and services. In this project, we will look at some of the challenges and solutions for adapting legacy and external systems into designs that work responsively. The goal will be to distill first principles of RWD that can be applied to “built-systems” and what to look for to make these default designs responsive. Our case study will be remaking a fixed-width digital library application into a responsive digital library application for multiple screens ([http://arc.lib.montana.edu/national-park-service-webcams/item/7](http://arc.lib.montana.edu/national-park-service-webcams/item/7)).
@@ -19,7 +20,7 @@ Our first goal with any retrofit is to make sure our site has some instructions 
 
 Place the meta viewport tag inside of the <head> tags at the top of the HTML document to make sure these instructions are found as the page is rendered by the browser. Each of the values inside of the content attribute introduces a specific rule. width=device-width tells the page to find and match the screen’s width. Once this match is made, it allows the page to adapt content to match different screen sizes. initial-scale=1 defines the initial scale of the page and the zoom level. Without setting this initial scale the web page will zoom out in small screen settings and appear as a tiny version of what you might see on a desktop computer. Add the <meta name="viewport" tag to all pages that you are turning into responsive pages. In our digital library application case study, the meta viewport tag is added to the head of the document and the first step of our retrofit is in place.
 
-** Step 2: Identify your Method for Assigning Responsive CSS Rules**
+**Step 2: Identify your Method for Assigning Responsive CSS Rules**
 
 Our next goal is to figure out how we are going to get our CSS rules onto the page. Two methods are options here. First, we can try to link to new stylesheets that have media queries within the <link> tag to identify when to load and use the styles.
 
@@ -31,6 +32,7 @@ Our next goal is to figure out how we are going to get our CSS rules onto the pa
 ```
 
 Note that these new stylesheet calls are placed in the <head> and follow a cascading order to make sure they override the styles that immediately precede them when a media query is matched to a screen or device. This method works and may be your only option for a retrofit, but it does add 3 new HTTP requests to your page which could impact performance. The second method is my preference and involves adding the media queries directly to the original.css document.
+
 
 ```sh
 /* original stylesheet styles */
