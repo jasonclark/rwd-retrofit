@@ -12,17 +12,17 @@ Whenever we refer to the "page" in this chapter, we are talking about this item 
 
 **Step 1: Set the Viewport to be Adaptable and Responsive**
 
-Our first goal with any retrofit is to make sure our site has some instructions for controlling the width and scale of the browser’s viewport. In this case, we are looking to set an HTML tag that tells the browser how to control the page's dimensions and scaling. It’s a simple tag with incredible power. Hopefully, you will have access to the HTML source of the pages to add this tag. This is the simplest means, but you might have to get creative and figure out other means. Some browsers are starting to implement a viewport declaration ([https://developer.mozilla.org/en-US/docs/Web/CSS/@viewport](https://developer.mozilla.org/en-US/docs/Web/CSS/@viewport)) that might be able to do this in the future - @viewport {width:device-width;}. There are also some possibilities around inserting the <meta> tag with Javascript ([http://www.quirksmode.org/blog/archives/2011/06/dynamically_cha.html](http://www.quirksmode.org/blog/archives/2011/06/dynamically_cha.html)). At any rate, the tag you want to add is below.
+Our first goal with any retrofit is to make sure our site has some instructions for controlling the width and scale of the browser’s viewport. In this case, we are looking to set an HTML tag that tells the browser how to control the page's dimensions and scaling. It’s a simple tag with incredible power. Hopefully, you will have access to the HTML source of the pages to add this tag. This is the simplest means, but you might have to get creative and figure out other means. Some browsers are starting to implement a viewport declaration ([https://developer.mozilla.org/en-US/docs/Web/CSS/@viewport](https://developer.mozilla.org/en-US/docs/Web/CSS/@viewport)) that might be able to do this in the future - @viewport {width:device-width;}. There are also some possibilities around inserting the &lt;meta&rt; tag with Javascript ([http://www.quirksmode.org/blog/archives/2011/06/dynamically_cha.html](http://www.quirksmode.org/blog/archives/2011/06/dynamically_cha.html)). At any rate, the tag you want to add is below.
 
 ```sh
 <meta name="viewport" content="width=device-width, initial-scale=1">
 ```
 
-Place the meta viewport tag inside of the <head> tags at the top of the HTML document to make sure these instructions are found as the page is rendered by the browser. Each of the values inside of the content attribute introduces a specific rule. width=device-width tells the page to find and match the screen’s width. Once this match is made, it allows the page to adapt content to match different screen sizes. initial-scale=1 defines the initial scale of the page and the zoom level. Without setting this initial scale the web page will zoom out in small screen settings and appear as a tiny version of what you might see on a desktop computer. Add the <meta name="viewport" tag to all pages that you are turning into responsive pages. In our digital library application case study, the meta viewport tag is added to the head of the document and the first step of our retrofit is in place.
+Place the meta viewport tag inside of the &lt;head&rt; tags at the top of the HTML document to make sure these instructions are found as the page is rendered by the browser. Each of the values inside of the content attribute introduces a specific rule. width=device-width tells the page to find and match the screen’s width. Once this match is made, it allows the page to adapt content to match different screen sizes. initial-scale=1 defines the initial scale of the page and the zoom level. Without setting this initial scale the web page will zoom out in small screen settings and appear as a tiny version of what you might see on a desktop computer. Add the &lt;meta name="viewport" tag to all pages that you are turning into responsive pages. In our digital library application case study, the meta viewport tag is added to the head of the document and the first step of our retrofit is in place.
 
 **Step 2: Identify your Method for Assigning Responsive CSS Rules**
 
-Our next goal is to figure out how we are going to get our CSS rules onto the page. Two methods are options here. First, we can try to link to new stylesheets that have media queries within the <link> tag to identify when to load and use the styles.
+Our next goal is to figure out how we are going to get our CSS rules onto the page. Two methods are options here. First, we can try to link to new stylesheets that have media queries within the &lt;link&rt; tag to identify when to load and use the styles.
 
 ```sh
 <link rel="stylesheet" href="original.css">
@@ -31,7 +31,7 @@ Our next goal is to figure out how we are going to get our CSS rules onto the pa
 <link rel="stylesheet" href="rwd-small.css" media="(max-width:30.063em)">
 ```
 
-Note that these new stylesheet calls are placed in the <head> and follow a cascading order to make sure they override the styles that immediately precede them when a media query is matched to a screen or device. This method works and may be your only option for a retrofit, but it does add 3 new HTTP requests to your page which could impact performance. The second method is my preference and involves adding the media queries directly to the original.css document.
+Note that these new stylesheet calls are placed in the &lt;head&rt; and follow a cascading order to make sure they override the styles that immediately precede them when a media query is matched to a screen or device. This method works and may be your only option for a retrofit, but it does add 3 new HTTP requests to your page which could impact performance. The second method is my preference and involves adding the media queries directly to the original.css document.
 
 
 ```sh
@@ -111,7 +111,7 @@ Another step in the retrofit process is the incorporation of flexible media obje
 }
 ```
 
-We will pair that new class with a new HTML class on any <img> tag that we want to be flexible.
+We will pair that new class with a new HTML class on any &lt;img&rt; tag that we want to be flexible.
 
 ```sh
 <img class="img-responsive" src="…" />
