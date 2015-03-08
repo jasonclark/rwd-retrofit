@@ -20,7 +20,7 @@ Our first goal with any retrofit is to make sure our site has some instructions 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 ```
 
-Place the meta viewport tag inside of the <head> tags at the top of the HTML document to make sure these instructions are found as the page is rendered by the browser. Each of the values inside of the content attribute introduces a specific rule. width=device-width tells the page to find and match the screen’s width. Once this match is made, it allows the page to adapt content to match different screen sizes. initial-scale=1 defines the initial scale of the page and the zoom level. Without setting this initial scale the web page will zoom out in small screen settings and appear as a tiny version of what you might see on a desktop computer. Add the <meta name="viewport" tag to all pages that you are turning into responsive pages. In our digital library application case study, the meta viewport tag is added to the head of the document and the first step of our retrofit is in place.
+Place the meta viewport tag inside of the &lt;head&gt; tags at the top of the HTML document to make sure these instructions are found as the page is rendered by the browser. Each of the values inside of the content attribute introduces a specific rule. width=device-width tells the page to find and match the screen’s width. Once this match is made, it allows the page to adapt content to match different screen sizes. initial-scale=1 defines the initial scale of the page and the zoom level. Without setting this initial scale the web page will zoom out in small screen settings and appear as a tiny version of what you might see on a desktop computer. Add the <meta name="viewport" tag to all pages that you are turning into responsive pages. In our digital library application case study, the meta viewport tag is added to the head of the document and the first step of our retrofit is in place.
 
 ** **
 
@@ -35,7 +35,7 @@ Our next goal is to figure out how we are going to get our CSS rules onto the pa
 <link rel="stylesheet" href="rwd-small.css" media="(max-width:30.063em)">
 ```
 
-Note that these new stylesheet calls are placed in the <head> and follow a cascading order to make sure they override the styles that immediately precede them when a media query is matched to a screen or device. This method works and may be your only option for a retrofit, but it does add 3 new HTTP requests to your page which could impact performance. The second method is my preference and involves adding the media queries directly to the original.css document.
+Note that these new stylesheet calls are placed in the &lt;head&gt; and follow a cascading order to make sure they override the styles that immediately precede them when a media query is matched to a screen or device. This method works and may be your only option for a retrofit, but it does add 3 new HTTP requests to your page which could impact performance. The second method is my preference and involves adding the media queries directly to the original.css document.
 
 ```sh
 /* original stylesheet styles */
@@ -62,7 +62,7 @@ With the meta viewport tag in place and having figured out how to bring in the n
 
 **/C Step 4: Determine and Set the Breakpoints**
 
-           	Our goal has always been to find a way to "linearize" the content on our pages. The single-column pattern works well in medium and small screen settings which are the goal of a retrofit. We haven’t seen what will happen as we start to move to a single column layout, but the screenshot below gives us a picture of our retrofit redesign on a medium screen.
+Our goal has always been to find a way to "linearize" the content on our pages. The single-column pattern works well in medium and small screen settings which are the goal of a retrofit. We haven’t seen what will happen as we start to move to a single column layout, but the screenshot below gives us a picture of our retrofit redesign on a medium screen.
 
 (Figure 5.02 – Digital Library Application on Medium Screen, Item Page with RWD)
 
@@ -110,7 +110,7 @@ For both breakpoints, we turn off the table and float styles using the display:b
 
 **/C Step 6: Find the Common Fixed-Width Elements and Reset as Flexible-Width**
 
-           	Another step in the retrofit process is the incorporation of flexible media objects. This is the second component of the RWD model (fluid grid layouts, **flexible media objects**, and media queries). It is part of the model because common elements such as images and video are often set up as having a defined width. So, a generic goal here is to come up with a set of CSS rules that can redefine those widths as relative. We’ll work through an image example, but these rules can be applied other items that you might want to set up as responsive. Again, using our browser developer tools, we can see that our images are set to a fixed-width. We’ll want to change that by adding a new class to our media queries.
+Another step in the retrofit process is the incorporation of flexible media objects. This is the second component of the RWD model (fluid grid layouts, **flexible media objects**, and media queries). It is part of the model because common elements such as images and video are often set up as having a defined width. So, a generic goal here is to come up with a set of CSS rules that can redefine those widths as relative. We’ll work through an image example, but these rules can be applied other items that you might want to set up as responsive. Again, using our browser developer tools, we can see that our images are set to a fixed-width. We’ll want to change that by adding a new class to our media queries.
 
 ```sh
 .img-responsive {
@@ -121,7 +121,7 @@ For both breakpoints, we turn off the table and float styles using the display:b
 }
 ```
 
-We will pair that new class with a new HTML class on any <img> tag that we want to be flexible.
+We will pair that new class with a new HTML class on any &lt;img&gt; tag that we want to be flexible.
 
 ```sh
 <img class="img-responsive" src="…" />
@@ -137,7 +137,7 @@ And this CSS/HTML pattern will work for other media objects as well, you might t
 
 **/C Step 7: Make a Flexible Header and Footer including Global Navigation**
 
-           	In our example, there are a few more fixed items that we will want to modify. First, it has a giant header image that will not work on medium or small screens. It also has long titles in and body text that will break the design on smaller screens. And finally, it has a global navigation and a footer that are fixed to a widescreen view. In order to make the small screen view that we saw in Figure 5.04, there are a couple more additions to make to the CSS rules. About that header: let’s remove the image, add an ellipses when the header text hits a breakpoint, and slide the global navigation together to fit on smaller screens.
+In our example, there are a few more fixed items that we will want to modify. First, it has a giant header image that will not work on medium or small screens. It also has long titles in and body text that will break the design on smaller screens. And finally, it has a global navigation and a footer that are fixed to a widescreen view. In order to make the small screen view that we saw in Figure 5.04, there are a couple more additions to make to the CSS rules. About that header: let’s remove the image, add an ellipses when the header text hits a breakpoint, and slide the global navigation together to fit on smaller screens.
 
 ```sh
 div#mastHead {height:45px;}
@@ -146,7 +146,7 @@ div#mastHead {height:45px;}
 h1.visuallyhidden {border:0 auto;width:100%;height:auto;margin:0;padding:0;opacity:1;clip:auto;color:#fff;width:750px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 ```
 
-Note that we set display:none; to hide the image. We also need to add a .visuallyhidden class to our <h1> tag to make it place an ellipses when text flows off the screen. We use this same set of styles in the .visuallyhidden class to make our body titles adaptable and on the The global navigation and the footer are using a float layout and we can adapt that layout to make it fit on smaller screens.
+Note that we set display:none; to hide the image. We also need to add a .visuallyhidden class to our &lt;h1&gt; tag to make it place an ellipses when text flows off the screen. We use this same set of styles in the .visuallyhidden class to make our body titles adaptable and on the The global navigation and the footer are using a float layout and we can adapt that layout to make it fit on smaller screens.
 
 ```sh
 #nav ul li#searchForm {float:left;width:auto;}
@@ -172,5 +172,5 @@ We can push the links and search form in the header closer together by switching
 
 **/C Step 8: Thinking About the Generic Techniques of the Retrofit**
 
-           	In the last step of the retrofit, there are a few more takeaways if you want to think about how to apply these techniques generically. First, find ways to make things disappear. We did this with display:none; and/or the opacity:1;clip:auto; for our .visuallyhidden class. Second, allow content to stretch into its container. We did this with our max-width and width:100%; settings. And finally, reuse existing layouts by changing the default layout rule. We did this by resetting the table layout to display:block and our reworking of the float layout. Retrofitting is not perfect and has its limitations, but it can also provide an improved user experience. It is worth learning some of these generic RWD retrofit techniques to give yourself some options to work more flexibly with legacy systems.
+In the last step of the retrofit, there are a few more takeaways if you want to think about how to apply these techniques generically. First, find ways to make things disappear. We did this with display:none; and/or the opacity:1;clip:auto; for our .visuallyhidden class. Second, allow content to stretch into its container. We did this with our max-width and width:100%; settings. And finally, reuse existing layouts by changing the default layout rule. We did this by resetting the table layout to display:block and our reworking of the float layout. Retrofitting is not perfect and has its limitations, but it can also provide an improved user experience. It is worth learning some of these generic RWD retrofit techniques to give yourself some options to work more flexibly with legacy systems.
 
